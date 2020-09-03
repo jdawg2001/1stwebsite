@@ -1,3 +1,5 @@
+var _Reflect$construct = require("../core-js/reflect/construct");
+
 var getPrototypeOf = require("./getPrototypeOf");
 
 var isNativeReflectConstruct = require("./isNativeReflectConstruct");
@@ -12,7 +14,7 @@ function _createSuper(Derived) {
 
     if (hasNativeReflectConstruct) {
       var NewTarget = getPrototypeOf(this).constructor;
-      result = Reflect.construct(Super, arguments, NewTarget);
+      result = _Reflect$construct(Super, arguments, NewTarget);
     } else {
       result = Super.apply(this, arguments);
     }
