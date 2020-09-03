@@ -1,6 +1,7 @@
+import _Object$defineProperty from "../../core-js/object/define-property";
 export default function _defineProperty(obj, key, value) {
   if (key in obj) {
-    Object.defineProperty(obj, key, {
+    _Object$defineProperty(obj, key, {
       value: value,
       enumerable: true,
       configurable: true,

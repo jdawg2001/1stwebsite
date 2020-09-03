@@ -1,10 +1,13 @@
+import _Symbol$iterator from "../../core-js/symbol/iterator";
+import _Symbol from "../../core-js/symbol";
+import _Promise from "../../core-js/promise";
 export default function _asyncGeneratorDelegate(inner, awaitWrap) {
   var iter = {},
       waiting = false;
 
   function pump(key, value) {
     waiting = true;
-    value = new Promise(function (resolve) {
+    value = new _Promise(function (resolve) {
       resolve(inner[key](value));
     });
     return {
@@ -15,8 +18,8 @@ export default function _asyncGeneratorDelegate(inner, awaitWrap) {
 
   ;
 
-  if (typeof Symbol === "function" && Symbol.iterator) {
-    iter[Symbol.iterator] = function () {
+  if (typeof _Symbol === "function" && _Symbol$iterator) {
+    iter[_Symbol$iterator] = function () {
       return this;
     };
   }

@@ -1,8 +1,18 @@
+import _Object$defineProperty from "../../core-js/object/define-property";
+import _sliceInstanceProperty from "../../core-js/instance/slice";
+import _reverseInstanceProperty from "../../core-js/instance/reverse";
+import _reduceInstanceProperty from "../../core-js/instance/reduce";
+import _Object$keys from "../../core-js/object/keys";
+import _forEachInstanceProperty from "../../core-js/instance/for-each";
 export default function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var _context, _context2, _context3;
+
   var desc = {};
-  Object.keys(descriptor).forEach(function (key) {
+
+  _forEachInstanceProperty(_context = _Object$keys(descriptor)).call(_context, function (key) {
     desc[key] = descriptor[key];
   });
+
   desc.enumerable = !!desc.enumerable;
   desc.configurable = !!desc.configurable;
 
@@ -10,7 +20,7 @@ export default function _applyDecoratedDescriptor(target, property, decorators, 
     desc.writable = true;
   }
 
-  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+  desc = _reduceInstanceProperty(_context2 = _reverseInstanceProperty(_context3 = _sliceInstanceProperty(decorators).call(decorators)).call(_context3)).call(_context2, function (desc, decorator) {
     return decorator(target, property, desc) || desc;
   }, desc);
 
@@ -20,7 +30,8 @@ export default function _applyDecoratedDescriptor(target, property, decorators, 
   }
 
   if (desc.initializer === void 0) {
-    Object.defineProperty(target, property, desc);
+    _Object$defineProperty(target, property, desc);
+
     desc = null;
   }
 

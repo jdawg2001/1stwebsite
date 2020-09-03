@@ -1,12 +1,15 @@
+import _getIterator from "../../core-js/get-iterator";
+import _isIterable from "../../core-js/is-iterable";
+import _Symbol from "../../core-js/symbol";
 export default function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  if (typeof _Symbol === "undefined" || !_isIterable(Object(arr))) return;
   var _arr = [];
   var _n = true;
   var _d = false;
   var _e = undefined;
 
   try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+    for (var _i = _getIterator(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
       _arr.push(_s.value);
 
       if (i && _arr.length === i) break;

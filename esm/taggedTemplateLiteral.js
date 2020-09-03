@@ -1,11 +1,14 @@
+import _Object$defineProperties from "../../core-js/object/define-properties";
+import _Object$freeze from "../../core-js/object/freeze";
+import _sliceInstanceProperty from "../../core-js/instance/slice";
 export default function _taggedTemplateLiteral(strings, raw) {
   if (!raw) {
-    raw = strings.slice(0);
+    raw = _sliceInstanceProperty(strings).call(strings, 0);
   }
 
-  return Object.freeze(Object.defineProperties(strings, {
+  return _Object$freeze(_Object$defineProperties(strings, {
     raw: {
-      value: Object.freeze(raw)
+      value: _Object$freeze(raw)
     }
   }));
 }

@@ -1,9 +1,13 @@
+import _getIterator from "../../core-js/get-iterator";
+import _Array$isArray from "../../core-js/array/is-array";
+import _getIteratorMethod from "../../core-js/get-iterator-method";
+import _Symbol from "../../core-js/symbol";
 import unsupportedIterableToArray from "./unsupportedIterableToArray";
 export default function _createForOfIteratorHelper(o, allowArrayLike) {
   var it;
 
-  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
-    if (Array.isArray(o) || (it = unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+  if (typeof _Symbol === "undefined" || _getIteratorMethod(o) == null) {
+    if (_Array$isArray(o) || (it = unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
       if (it) o = it;
       var i = 0;
 
@@ -35,7 +39,7 @@ export default function _createForOfIteratorHelper(o, allowArrayLike) {
       err;
   return {
     s: function s() {
-      it = o[Symbol.iterator]();
+      it = _getIterator(o);
     },
     n: function n() {
       var step = it.next();
