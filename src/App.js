@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'; //React R
 //Pages
 import Home from './components/Pages/Home';
 import About from './components/Pages/About';
+import Contact from './components/Pages/Contact';
 
 class App extends Component {
     render() {
@@ -18,27 +19,14 @@ class App extends Component {
                   component={Home}
                 />
 
-              <Route
-                  path="/ab"
-                  render={() => {
-                    return(
-                      <h1>I am the /ab Route</h1>
-                    )
-                  }}
-                />
-
-                <Route
-                  path="/about"
-                  render={() => {
-                    return(
-                      <h1>I am the /about Route</h1>
-                    )
-                  }}
-                />
-
                 <Route
                   path="/about"
                   component={About}
+                  />
+
+                <Route
+                  path="/contact"
+                  component={Contract}
                   />
 
             
