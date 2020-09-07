@@ -5,6 +5,7 @@ import {image} from '../assets/img/header-bg.jpg';
 //Re-usable components
 import Services from '../Common/Services';//two '.' because Services is two directories up (from Pages to Common)
 import Portfolio from '../Common/Portfolio';
+import Timeline from '../Common/Timeline';
 
 class Home extends Component {
 
@@ -24,6 +25,8 @@ class Home extends Component {
 
             <Services />
             <Portfolio />
+            <Timeline />
+            <Team />
         </div>
 
         )
