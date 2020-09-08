@@ -26,7 +26,7 @@ class App extends Component {
 
                 <Route
                   path="/contact"
-                  component={Contract}
+                  component={Contact}
                   />
 
             
