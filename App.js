@@ -1,24 +1,39 @@
 import React, { Component } from 'react';
 import PageWrapper from './components/PageWrapper';
-import Home from './components/Pages/Home';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';//React Router is the standard routing library for React
+import {BrowserRouter as Router, Route} from 'react-router-dom'; //React Router is the standard routing library for React, removed Link 
 
-class Apps extends Component {
+//Pages
+import Home from './components/Pages/Home';
+import About from './components/Pages/About';
+import Contact from './components/Pages/Contact';
+
+class App extends Component {
     render() {
      return (
-        <Router>
-          <PageWrapper  >
+          <Router>
+            <PageWrapper  >
 
-            <Route
-              path="/"
-              componenet={Home}
-            />
+              <Route
+                  exact={true}//when path = to home or / or no /, it is going to render that statement properly, only essential in / route
+                  path="/"
+                  component={Home}
+                />
 
+                <Route
+                  path="/about"
+                  component={About}
+                  />
 
-          </PageWrapper >
-        </Router>
+                <Route
+                  path="/contact"
+                  component={Contact}
+                  />
 
+            
+            </PageWrapper >
+          </Router>
+          
    );
   }
 }
-export default Apps;
+export default App;
