@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Field from '../Common/Field';
-import {withFormik} from 'formik';//Formik handles submissions and formatting
+import {withFormik} from 'formik';//Handling React Forms and Validation with Yup; Formik does mainly 3 things: Getting values in and out of form state; validation and error messages; handling form submission
+import * as Yup from 'yup';
 
 const fields = {
     sections: [
@@ -85,16 +86,16 @@ export default withFormik({
         phone: '',
         message: '',
     }),
-    validate: values => {
-        const errors = {};
-        
-        Object.keys(values).map(v => {
-            if(!values[v]){
-                errors[v] = "Required";
-            }
-        })
-        return errors;
-    },
+    validationSchema: Yup.object().shape({
+        name: Yup.string().min(3, 'Come on bro, your name is long than that.').required('You must give us your name.'),
+        email: Yup.string().email('You need ot give us a valid email').required('We need your email.'),
+        phone: Yup.string()
+        .min(10, 'Please provide your 10 digit phone number.')
+        .max(15, 'Your phone number is too long.')
+        .required('We need a phone number to reach you at.'),
+        message: Yup.string().min(500, 'You need to provide us more detailed information')
+        .required('Message is required.')
+    }),
     handleSubmit: (values, {setSubmitting}) => {
         console.log("VALUES", values);
         alert("You've submitted the form", JSON.stringify(values));

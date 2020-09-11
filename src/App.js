@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PageWrapper from './components/PageWrapper';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'; //React Router is the standard routing library for React
+import {BrowserRouter as Router, Route} from 'react-router-dom'; //React Router is the standard routing library for React, removed Link 
 
 //Pages
 import Home from './components/Pages/Home';
